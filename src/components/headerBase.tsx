@@ -13,7 +13,7 @@ const HeaderBase = () => {
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
               <div>
                 <div className="flex items-center justify-between py-3 md:py-5 md:block">
-                  <h1 className="text-grey-100 text-lg">Bruno</h1>
+                  <h1 className="text-grey-100 text-lg">Bruno Garcia</h1>
                   <div className="md:hidden">
                     <button
                       className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"

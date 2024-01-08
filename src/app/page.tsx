@@ -1,50 +1,91 @@
+import Card from "@/components/card/Card";
 import HeaderBase from "@/components/headerBase";
+import { Project } from "@/interfaces/project";
+import api from "@/services/api";
 import Image from "next/image";
 import Link from "next/link";
 
-const Home = () => {
+
+export const fetchProjects = async () => {
+  const response = await api.get(
+    "users/brunoydev/repos?per_page=10&page=1&sort=updated"
+  );
+
+  const projects = response.data;
+
+  const projectsWithTechs = await Promise.all(
+    projects.map(async (project: Project) => {
+      const techs = await fetchTechs(project.name);
+      return { ...project, techs };
+    })
+  );
+
+  return projectsWithTechs;
+};
+
+const fetchTechs = async (projectName: string) => {
+  const response = await api.get(`repos/BrunoYDev/${projectName}/languages`);
+  return response.data;
+};
+
+const Home = async () => {
+  const projects: Project[] = await fetchProjects();
+
   return (
     <>
       <main className="body min-h-screen justify-center overflow-hidden">
-        <section id="about" className="flex-col p-0 h-screen pt-28 border-b-4 border-grey-100">
+        <section
+          id="about"
+          className="flex-col p-0 h-screen pt-28 border-b-4 border-grey-100"
+        >
           <div className="flex-col w-[90%] mx-auto justify-center">
-          <div className="flex gap-5 justify-center items-center">
-            <figure className="border flex rounded-full overflow-hidden w-16 h-16">
+            <div className="flex gap-5 justify-center items-center">
+              <figure className="border flex rounded-full overflow-hidden w-16 h-16">
+                <Image
+                  src="/profile.jpg"
+                  width={500}
+                  height={100}
+                  style={{
+                    objectFit: "cover",
+                    borderRadius: "100px",
+                  }}
+                  priority
+                  alt="profile photo"
+                />
+              </figure>
+              <h2 className="text-grey-100">Hello, My name is Bruno</h2>
+            </div>
+            <div className="flex-col justify-center w-full">
+              <h2 className="text-grey-100 text-5xl text-left mt-6 text-bold">
+                I <span className="text-primary-900">love</span> creating and{" "}
+                <span className="text-primary-900">developing</span> projects{" "}
+              </h2>
+              <p className="text-grey-300 text-left mt-10">
+                Exploring the intersection of creativity and technology drives
+                me. My journey is shaped by the relentless pursuit of unique
+                solutions and impactful experiences. Let's create something
+                extraordinary together.
+              </p>
+            </div>
+            <div className="w-full mt-6 flex gap-5">
+              <Link
+                href="#projects"
+                className="px-10 py-3 bg-primary-900 text-grey-100 rounded-md"
+              >
+                See Projects
+              </Link>
+              <Link href="https://github.com/BrunoYDev" target="_blank">
+                <Image
+                  src="/git-icon.svg"
+                  width={50}
+                  height={50}
+                  priority
+                  alt="git icon"
+                />
+              </Link>
+            </div>
+            <div className="flex mt-20 gap-5">
               <Image
-                src="/profile.jpg"
-                width={500}
-                height={100}
-                style={{
-                  objectFit: "cover",
-                  borderRadius: "100px",
-                }}
-                priority
-                alt="profile photo"
-              />
-            </figure>
-            <h2 className="text-grey-100">Hello, My name is Bruno</h2>
-          </div>
-          <div className="flex-col justify-center w-full">
-            <h2 className="text-grey-100 text-5xl text-left mt-6 text-bold">
-              I <span className="text-primary-900">love</span> creating and{" "}
-              <span className="text-primary-900">developing</span> projects{" "}
-            </h2>
-            <p className="text-grey-300 text-left mt-10">Discover here in this environment, created especially for you, all my projects and technologies</p>
-          </div>
-          <div className="w-full mt-6 flex gap-5">
-            <Link href="#projects" className="px-10 py-3 bg-primary-900 text-grey-100 rounded-md">See Projects</Link>
-            <Link href="https://github.com/BrunoYDev" target="_blank">
-            <Image
-                src="/git-icon.svg"
-                width={50}
-                height={50}
-                priority
-                alt="git icon"
-              />
-            </Link>
-          </div>
-          <div className="flex mt-20 gap-5">
-          <Image
                 src="/htmlicon.svg"
                 width={50}
                 height={50}
@@ -79,83 +120,20 @@ const Home = () => {
                 priority
                 alt="html icon"
               />
-          </div>
+            </div>
           </div>
         </section>
-        <section id="projects">
-        <div className="flex-col w-[90%] mx-auto mt-5 justify-center">
-          <div className="flex gap-5 justify-center items-center">
-            <figure className="border flex rounded-full overflow-hidden w-16 h-16">
-              <Image
-                src="/profile.jpg"
-                width={500}
-                height={100}
-                style={{
-                  objectFit: "cover",
-                  borderRadius: "100px",
-                }}
-                priority
-                alt="profile photo"
-              />
-            </figure>
-            <h2 className="text-grey-100">Hello, My name is Bruno</h2>
-          </div>
-          <div className="flex-col justify-center w-full">
-            <h2 className="text-grey-100 text-5xl text-left mt-6 text-bold">
-              I <span className="text-primary-900">love</span> creating and{" "}
-              <span className="text-primary-900">developing</span> projects{" "}
-            </h2>
-            <p className="text-grey-300 text-left mt-10">Discover here in this environment, created especially for you, all my projects and technologies</p>
-          </div>
-          <div className="w-full mt-6 flex gap-5">
-            <Link href="#projects" className="px-10 py-3 bg-primary-900 text-grey-100 rounded-md">See Projects</Link>
-            <Link href="https://github.com/BrunoYDev" target="_blank">
-            <Image
-                src="/git-icon.svg"
-                width={50}
-                height={50}
-                priority
-                alt="git icon"
-              />
-            </Link>
-          </div>
-          <div className="flex mt-10 gap-5">
-          <Image
-                src="/htmlicon.svg"
-                width={50}
-                height={50}
-                priority
-                alt="html icon"
-              />
-              <Image
-                src="/cssicon.svg"
-                width={46}
-                height={46}
-                priority
-                alt="html icon"
-              />
-              <Image
-                src="/jsicon.svg"
-                width={53}
-                height={53}
-                priority
-                alt="html icon"
-              />
-              <Image
-                src="/nodeicon.svg"
-                width={91}
-                height={26}
-                priority
-                alt="html icon"
-              />
-              <Image
-                src="/reacticon.svg"
-                width={68}
-                height={68}
-                priority
-                alt="html icon"
-              />
-          </div>
+        <section
+          id="projects"
+          className="flex justify-center h-screen pt-24 bg-grey-500 border-b-4 border-grey-100"
+        >
+          <div className="flex-col w-[80%] justify-left ">
+            <h2 className="text-grey-100 text-xl text-bold">My Projects</h2>
+            <ul className="text-grey-100">
+              {projects.map((project: Project) => (
+                <Card key={project.id} project={project} />
+              ))}
+            </ul>
           </div>
         </section>
         <section id="contacts"></section>
