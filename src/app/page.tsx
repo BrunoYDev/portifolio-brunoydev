@@ -110,9 +110,9 @@ const Home = async () => {
         </section>
         <section
           id="projects"
-          className="flex justify-center min-h-fit pt-24 bg-grey-500 "
+          className="flex justify-center min-h-fit w-screen pt-24 bg-grey-500 "
         >
-          <div className="flex-col w-[80%] justify-left ">
+          <div className="flex-col w-[90%] justify-left ">
             <h2 className="text-grey-100 text-xl text-bold">
               My Latest Projects
             </h2>
@@ -182,7 +182,7 @@ const Home = async () => {
           </div>
         </section>
         <section id="socialMedia" className="bg-grey-500 w-screen justify-center flex">
-          <div className="flex-col w-[80%] p-11">
+          <div className="flex-col w-[90%] p-11">
           <figure className=" flex mx-auto rounded-full overflow-hidden w-16 h-16 mb-1">
                 <Image
                   src="/profile.jpg"
