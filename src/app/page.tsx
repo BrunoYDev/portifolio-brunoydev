@@ -127,7 +127,7 @@ const Home = async () => {
           <div className="flex-col w-[90%] mx-auto justify-center">
             <div className="flex-col justify-center w-full">
               <h2 className="text-grey-100 text-5xl text-left mt-6 text-bold">
-                Let's set up a conversation and{" "}
+                Lets set up a conversation and{" "}
                 <span className="text-primary-900">develop our creativity</span>{" "}
                 together?
               </h2>
@@ -146,7 +146,7 @@ const Home = async () => {
               />
               <div className="flex-col gap-3">
               <h3 className="text-xl mb-5">My Phone</h3>
-              <p className="text-grey-200 mb-5">I'm available for a voice chat, let's about creativity together?</p>
+              <p className="text-grey-200 mb-5">I'm available for a voice chat, lets about creativity together?</p>
               <Link href="tel:+5513996428264" className="text-grey-100" target="_blank">Call Now</Link>
               </div>
               </div>
@@ -197,7 +197,7 @@ const Home = async () => {
                 />
               </figure>
               <h2 className="text-grey-100 text-2xl mb-6 text-center">Thank you!</h2>
-              <p className="text-grey-200 mb-6 text-center">Follow me on my social networks and let's talk</p>
+              <p className="text-grey-200 mb-6 text-center">Follow me on my social networks and lets talk</p>
               <div className="flex w-[100%] items-center justify-center gap-6">
               <Link href="https://www.instagram.com/ykkos2/"  target="_blank">
               <Image
