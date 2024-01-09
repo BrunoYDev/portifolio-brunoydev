@@ -147,7 +147,7 @@ const Home = async () => {
               <div className="flex-col gap-3">
               <h3 className="text-xl mb-5">My Phone</h3>
               <p className="text-grey-200 mb-5">I'm available for a voice chat, let's about creativity together?</p>
-              <Link href="tel:+5513996428264" className="text-grey-200" target="_blank">Call Now</Link>
+              <Link href="tel:+5513996428264" className="text-grey-100" target="_blank">Call Now</Link>
               </div>
               </div>
               <div className="flex gap-10 mb-10 items-start">
@@ -161,7 +161,7 @@ const Home = async () => {
               <div>
               <h3 className="text-xl mb-5">My Email</h3>
               <p className="text-grey-200 mb-5">Send me an email reporting feedbacks, suggestions and ideas</p>
-              <Link href="mailto:bruno.rogues.garcia@gmail.com" className="text-grey-200" target="_blank">Send Email Now</Link>
+              <Link href="mailto:bruno.rogues.garcia@gmail.com" className="text-grey-100" target="_blank">Send Email Now</Link>
               </div>
               </div>
               <div className="flex gap-10 mb-10 items-start">
@@ -175,7 +175,7 @@ const Home = async () => {
               <div>
               <h3 className="text-xl mb-5">My Linkedin</h3>
               <p className="text-grey-200 mb-5">We can create more constant interactions as well as a sharing network</p>
-              <Link href="https://www.linkedin.com/in/brunogarciaydev" className="text-grey-200" target="_blank">Go to linkedin</Link>
+              <Link href="https://www.linkedin.com/in/brunogarciaydev" className="text-grey-100" target="_blank">Go to linkedin</Link>
               </div>
               </div>
             </div>
