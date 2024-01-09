@@ -4,28 +4,19 @@ import { Project } from "@/interfaces/project";
 import api from "@/services/api";
 import Image from "next/image";
 import Link from "next/link";
-import { GetStaticProps } from 'next';
 
 
-const fetchProjects = async () => {
+
+export const generateStaticParams = async () => {
   const response = await api.get(
     "users/brunoydev/repos?per_page=10&page=1&sort=updated"
   );
 
-  return response.data;
+  return response.data
+}
 
-};
-
-export const getStaticProps: GetStaticProps = async () => {
-  const projects: Project[] = await fetchProjects();
-
-  return {
-    props: { projects },
-    revalidate: 90,
-  };
-};
-
-const Home: React.FC<{ projects: Project[] }> = ({ projects }) => {
+const Home = async () => {
+  const projects: Project[] = await generateStaticParams();
 
   return (
     <>
@@ -121,11 +112,11 @@ const Home: React.FC<{ projects: Project[] }> = ({ projects }) => {
         </section>
         <section
           id="projects"
-          className="flex justify-center h-screen pt-24 bg-grey-500 border-b-4 border-grey-100"
+          className="flex justify-center min-h-fit pt-24 bg-grey-500 border-b-4 border-grey-100"
         >
           <div className="flex-col w-[80%] justify-left ">
             <h2 className="text-grey-100 text-xl text-bold">My Projects</h2>
-            <ul className="text-grey-100">
+            <ul className="text-grey-100 min-h-fit pb-5">
               {projects.map((project: Project) => (
                 <Card key={project.id} project={project} />
               ))}
