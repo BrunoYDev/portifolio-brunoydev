@@ -4,6 +4,7 @@ import { Project } from "@/interfaces/project";
 import api from "@/services/api";
 import Image from "next/image";
 import Link from "next/link";
+import { GetStaticProps } from 'next';
 
 
 const fetchProjects = async () => {
@@ -15,8 +16,16 @@ const fetchProjects = async () => {
 
 };
 
-const Home = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const projects: Project[] = await fetchProjects();
+
+  return {
+    props: { projects },
+    revalidate: 90,
+  };
+};
+
+const Home: React.FC<{ projects: Project[] }> = ({ projects }) => {
 
   return (
     <>
