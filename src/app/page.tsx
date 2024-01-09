@@ -146,7 +146,7 @@ const Home = async () => {
               />
               <div className="flex-col gap-3">
               <h3 className="text-xl mb-5">My Phone</h3>
-              <p className="text-grey-200 mb-5">I'm available for a voice chat, lets about creativity together?</p>
+              <p className="text-grey-200 mb-5">Im available for a voice chat, lets about creativity together?</p>
               <Link href="tel:+5513996428264" className="text-grey-100" target="_blank">Call Now</Link>
               </div>
               </div>
