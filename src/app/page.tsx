@@ -6,26 +6,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-export const fetchProjects = async () => {
+const fetchProjects = async () => {
   const response = await api.get(
     "users/brunoydev/repos?per_page=10&page=1&sort=updated"
   );
 
-  const projects = response.data;
-
-  const projectsWithTechs = await Promise.all(
-    projects.map(async (project: Project) => {
-      const techs = await fetchTechs(project.name);
-      return { ...project, techs };
-    })
-  );
-
-  return projectsWithTechs;
-};
-
-const fetchTechs = async (projectName: string) => {
-  const response = await api.get(`repos/BrunoYDev/${projectName}/languages`);
   return response.data;
+
 };
 
 const Home = async () => {
@@ -63,7 +50,7 @@ const Home = async () => {
               <p className="text-grey-300 text-left mt-10">
                 Exploring the intersection of creativity and technology drives
                 me. My journey is shaped by the relentless pursuit of unique
-                solutions and impactful experiences. Let's create something
+                solutions and impactful experiences. Lets create something
                 extraordinary together.
               </p>
             </div>
