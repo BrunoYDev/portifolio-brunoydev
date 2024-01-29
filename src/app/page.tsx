@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export const generateStaticParams = async () => {
   const response = await api.get(
-    "users/brunoydev/repos?per_page=10&page=1&sort=updated"
+    "users/brunoydev/repos?per_page=4&page=1&sort=updated"
   );
 
   return response.data;
