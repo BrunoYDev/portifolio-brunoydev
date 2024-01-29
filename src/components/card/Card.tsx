@@ -10,7 +10,7 @@ interface CardProps {
 
 const Card = ({ project }: CardProps) => {
   return (
-    <div className="flex-col mt-5 text-grey-200">
+    <div className="flex-col mt-5 text-grey-200 md:max-w-[300px]">
       <p className="text-2xl mb-3 text-grey-100">{project.name}</p>
       {project.language ? (
         <p className="flex gap-4 pb-2">
@@ -25,7 +25,7 @@ const Card = ({ project }: CardProps) => {
         </p>
       )}
       {project.description !== null ? (
-        <p className="mb-3">Description: {project.description}</p>
+        <p className="mb-3 text-ellipsis overflow-hidden line-clamp-4">Description: {project.description}</p>
       ) : (
         <p className="mb-3">Description: No Description</p>
       )}
