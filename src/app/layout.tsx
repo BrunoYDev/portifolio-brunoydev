@@ -6,8 +6,8 @@ import HeaderBase from "@/components/headerBase";
 const IBM_Plex = IBM_Plex_Sans({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Portifólio Bruno Garcia",
-  description: "Meu portifólio pessoal de projetos.",
+  title: "Portfólio Bruno Garcia",
+  description: "Meu portfólio pessoal de projetos.",
   icons: {
     icon: '/icon.png', 
   },
