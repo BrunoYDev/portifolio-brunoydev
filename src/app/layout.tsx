@@ -8,7 +8,10 @@ const IBM_Plex = IBM_Plex_Sans({ weight: "400", subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Portifólio Bruno Garcia",
   description: "Meu portifólio pessoal de projetos.",
-};
+  icons: {
+    icon: '/icon.png', 
+  },
+}; 
 
 export default function RootLayout({
   children,
