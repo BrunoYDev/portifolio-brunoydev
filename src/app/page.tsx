@@ -18,7 +18,7 @@ const Home = async () => {
 
   return (
     <>
-      <main className="body h-screen justify-center overflow-x-hidden">
+      <main className="body h-screen justify-center scroll-smooth overflow-x-hidden">
         <section
           id="about"
           className="flex-col p-0 h-screen pt-28 lg:pt-0 border-b-4 border-grey-100 md:flex md:flex-wrap md:justify-between md:gap-10"
